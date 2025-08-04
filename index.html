@@ -1214,27 +1214,27 @@
             </button>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Tokenomics</a></li>
-                    <li><a href="#">Roadmap</a></li>
-                    <li><a href="#">Community</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#tokenomics">Tokenomics</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content animate-on-scroll">
                     <h1>A Coin with a Mission – Crypto that Cares</h1>
                     <p>Enoba ($ENBA) supports struggling families with meme-fueled compassion.</p>
                     <div class="hero-buttons">
-                        <a href="#" class="btn btn-primary">View Tokenomics</a>
-                        <a href="#" class="btn btn-secondary">Join the Community</a>
+                        <a href="#tokenomics" class="btn btn-primary">View Tokenomics</a>
+                        <a href="https://t.me/+bEj6pq3CEVMyYmJk" class="btn btn-secondary">Join the Community</a>
                     </div>
                 </div>
                 <div class="hero-image animate-on-scroll">
@@ -1247,7 +1247,7 @@
     </section>
 
     <!-- Mission Section -->
-    <section class="mission">
+    <section class="mission" id="about">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <h2>What is Enoba ($ENBA)?</h2>
@@ -1361,7 +1361,7 @@
     </section>
 
     <!-- Tokenomics -->
-    <section class="tokenomics">
+    <section class="tokenomics" id="tokenomics">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <h2>Tokenomics</h2>
@@ -1395,7 +1395,7 @@
     </section>
 
     <!-- Roadmap -->
-    <section class="roadmap">
+    <section class="roadmap" id="roadmap">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <h2>The Journey Ahead</h2>
@@ -1443,7 +1443,7 @@
     </section>
 
     <!-- Community -->
-    <section class="community">
+    <section class="community" id="community">
         <div class="container">
             <div class="animate-on-scroll">
                 <h3>Join Our Community</h3>
@@ -1474,7 +1474,7 @@
                     <h5>Connect With Us</h5>
                     <div class="social-icons">
                         <a href="https://x.com/officialenoba?s=21" title="Twitter"><i class="fab fa-x-twitter"></i></a>
-                        <a href="https://t.me/+bEj6pq3CEVMyYmJk" title="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://t.me/+bEj6pq3CEVMyYmJk" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
                 <div class="footer-links-col">
@@ -1542,7 +1542,23 @@
                 }, 2000);
             });
         });
-        
+        // Nav functionality
+        document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent default anchor behavior
+
+    const targetId = this.getAttribute('href'); // Get the href like #about
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      // Scroll to the element smoothly
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
         // Scroll Animation Observer
         const observerOptions = {
             threshold: 0.1
